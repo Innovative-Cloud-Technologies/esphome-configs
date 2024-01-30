@@ -7,12 +7,7 @@ esphome:
   friendly_name: $friendly_name
   project:
     name: "ICT.BASE"
-    version: "0.0.1"
-
-esp32:
-  board: esp32dev
-  framework:
-    type: arduino
+    version: "0.0.2"
 
 wifi:
   fast_connect: True
