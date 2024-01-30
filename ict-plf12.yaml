@@ -1,0 +1,156 @@
+substitutions:
+  name: ict-plug
+  friendly_name: "ICT Plug"
+
+  # substitutions for power monitoring calibration.  Allows end users to change calibration in their yaml and still
+  # incorporate this file as a package to get all the updates we release.
+  voltage_divider_val:  "2001"
+  hlw_model:         BL0937
+  current_resistor_val: "0.001"
+  power_cal_val1_in:    "0.0"
+  power_cal_val1_out:   "0.0"
+  power_cal_val2_in:    "879.4"
+  power_cal_val2_out:   "750"
+  current_cal_val1_in:  "0.0"
+  current_cal_val1_out: "0.0"
+  current_cal_val2_in:  "6.8"
+  current_cal_val2_out: "3.5"
+  voltage_cal_val1_in:  "0.0"
+  voltage_cal_val1_out: "0.0"
+  voltage_cal_val2_in:  "132.7"
+  voltage_cal_val2_out: "119.1"
+
+  # set power monitoring mode in yaml, selecting the "yaml_configured" option in the select entity will cause these
+  # values to be used after next reboot.
+  change_mode_every: "1"
+  update_interval: 10s
+  initial_mode: CURRENT
+
+  # GPIO definitions
+  red_led_pin:  GPIO1
+  button_pin:   GPIO3
+  pm_cf_pin:    GPIO4
+  pm_cf1_pin:   GPIO5
+  blue_led_pin: GPIO12
+  relay_pin:    GPIO13
+  pm_sel_pin:   GPIO14
+
+esphome:
+  name: $name
+  friendly_name: $friendly_name
+  project:
+    name: "ICT.PLF12"
+    version: "1.1.3"
+
+esp8266:
+  board: esp01_1m
+  restore_from_flash: true
+  early_pin_init: false
+
+wifi:
+  ssid: $name
+  password: $name
+  fast_connect: True
+  ap:
+
+web_server:
+
+captive_portal:
+logger:
+api:
+ota:
+
+time:
+  - platform: homeassistant
+    id: homeassistant_time
+
+status_led:
+    pin:
+      number: $red_led_pin
+      inverted: true
+
+output:
+  - platform: gpio
+    id: blue_led
+    pin:
+      number: $blue_led_pin
+      inverted: true
+
+switch:
+  - platform: gpio
+    id: relay
+    name: None
+    pin: $relay_pin
+    restore_mode: RESTORE_DEFAULT_OFF
+    on_turn_on:
+      - output.turn_on: blue_led
+    on_turn_off:
+      - output.turn_off: blue_led
+
+binary_sensor:
+  - platform: gpio
+    id: button
+    name: Button
+    internal: True
+    pin:
+      number: $button_pin
+      inverted: true
+      mode:
+        input: true
+        pullup: true
+    filters:
+      - delayed_on: 50ms
+    on_press:
+      then:
+        switch.toggle: relay
+
+sensor:
+  - platform: hlw8012
+    id: hlw_main
+    sel_pin:
+      number: $pm_sel_pin
+      inverted: True
+    cf_pin: $pm_cf_pin
+    cf1_pin: $pm_cf1_pin
+    current_resistor: $current_resistor_val
+    voltage_divider: $voltage_divider_val
+    change_mode_every: $change_mode_every
+    update_interval: $update_interval
+    initial_mode: $initial_mode
+    model: $hlw_model
+    power:
+      name: Power
+      unit_of_measurement: W
+      id: wattage
+      filters:
+        - calibrate_linear:
+            - $power_cal_val1_in -> $power_cal_val1_out
+            - $power_cal_val2_in -> $power_cal_val2_out
+    current:
+      name: Current
+      unit_of_measurement: A
+      id: current
+      filters:
+        - calibrate_linear:
+            - $current_cal_val1_in -> $current_cal_val1_out
+            - $current_cal_val2_in -> $current_cal_val2_out
+    voltage:
+      name: Voltage
+      unit_of_measurement: V
+      id: voltage
+      filters:
+        - calibrate_linear:
+            - $voltage_cal_val1_in -> $voltage_cal_val1_out
+            - $voltage_cal_val2_in -> $voltage_cal_val2_out
+
+  - platform: total_daily_energy
+    name: Total Daily Energy
+    power_id: wattage
+    filters:
+        - multiply: 0.001  ## convert Wh to kWh
+    unit_of_measurement: kWh
+
+text_sensor:
+  - platform: wifi_info
+    ip_address:
+      name: IP Address
