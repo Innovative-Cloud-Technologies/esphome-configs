@@ -1,0 +1,44 @@
+substitutions:
+  name: ict-base
+  friendly_name: "ICT Base"
+
+esphome:
+  name: $name
+  friendly_name: $friendly_name
+  project:
+    name: "ICT.BASE"
+    version: "0.0.1"
+
+esp32:
+  board: esp32dev
+  framework:
+    type: arduino
+
+wifi:
+  fast_connect: True
+  ap:
+    ssid: $name
+    password: $name
+
+web_server:
+  include_internal: true
+
+ota:
+  password: 12345678
+
+api:
+captive_portal:
+logger:
+
+time:
+  - platform: homeassistant
+    id: homeassistant_time
+
+sensor:
+  - platform: wifi_signal
+    name: WiFi Signal
+
+text_sensor:
+  - platform: wifi_info
+    ip_address:
+      name: IP Address
