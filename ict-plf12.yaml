@@ -36,7 +36,7 @@ substitutions:
   pm_sel_pin:   GPIO14
 
 dashboard_import:
-  package_import_url: github://Innovative-Cloud-Technologies/esphome-configs/ict-plf12.yaml
+  package_import_url: github://Innovative-Cloud-Technologies/esphome-configs/ict-plf12.yaml@main
 
 esphome:
   name: $name
@@ -44,7 +44,7 @@ esphome:
   name_add_mac_suffix: false
   project:
     name: "ICT.PLF12"
-    version: "1.1.5"
+    version: "1.1.6"
 
 esp8266:
   board: esp01_1m
@@ -94,8 +94,6 @@ switch:
 binary_sensor:
   - platform: gpio
     id: button
-    name: Button
-    internal: True
     pin:
       number: $button_pin
       inverted: true
