@@ -44,7 +44,7 @@ esphome:
   name_add_mac_suffix: false
   project:
     name: "ICT.PLF12"
-    version: "1.1.4"
+    version: "1.1.5"
 
 esp8266:
   board: esp01_1m
