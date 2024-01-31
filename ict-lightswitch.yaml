@@ -2,7 +2,15 @@ packages:
   ICT.BASE:
     url: https://github.com/Innovative-Cloud-Technologies/esphome-configs
     file: ict-base.yaml
-    refresh: 1d
+    refresh: 1min
+
+esphome:
+  project:
+    name: "ICT.LIGHTSWITCH"
+    version: "0.0.2"
+
+dashboard_import:
+  package_import_url: github://Innovative-Cloud-Technologies/esphome-configs/ict-lightswitch.yaml@main
 
 substitutions:
   output_id: relay

@@ -1,13 +1,16 @@
-substitutions:
-  name: ict-base
-  friendly_name: "ICT Base"
-
 esphome:
   name: $name
   friendly_name: $friendly_name
   project:
     name: "ICT.BASE"
-    version: "0.0.2"
+    version: "0.0.3"
+
+dashboard_import:
+  package_import_url: github://Innovative-Cloud-Technologies/esphome-configs/ict-base.yaml@main
+
+substitutions:
+  name: ict-base
+  friendly_name: "ICT Base"
 
 wifi:
   fast_connect: True
