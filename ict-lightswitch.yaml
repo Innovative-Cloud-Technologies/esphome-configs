@@ -1,0 +1,42 @@
+packages:
+  ICT.BASE:
+    url: https://github.com/Innovative-Cloud-Technologies/esphome-configs
+    file: ict-base.yaml
+    refresh: 1d
+
+substitutions:
+  output_id: relay
+  relay_pin: P6
+  button_pin: P10
+  icon: fapro:light-bulb-on
+
+bk72xx:
+  board: wb3s
+  framework:
+    version: dev
+
+output:
+  - platform: gpio
+    pin: $relay_pin
+    id: relay
+
+light:
+  - platform: binary
+    name: None
+    output: relay
+    id: lightswitch
+
+binary_sensor:
+  - platform: gpio
+    pin:
+      number: $button_pin
+      inverted: true
+      mode:
+        input: true
+        pullup: true
+    id: button_press
+    filters:
+      - delayed_on: 10ms
+    on_press:
+      then:
+        - light.toggle: lightswitch
