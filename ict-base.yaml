@@ -1,22 +1,21 @@
 esphome:
-  name: $name
-  friendly_name: $friendly_name
+  name: $device_name
   project:
     name: "ICT.BASE"
-    version: "0.0.3"
+    version: "0.0.4"
 
 dashboard_import:
   package_import_url: github://Innovative-Cloud-Technologies/esphome-configs/ict-base.yaml@main
 
 substitutions:
-  name: ict-base
-  friendly_name: "ICT Base"
+  device_name: ict-base
+  entity_name: "ICT Base"
 
 wifi:
   fast_connect: True
   ap:
-    ssid: $name
-    password: $name
+    ssid: $device_name
+    password: $device_name
 
 web_server:
   include_internal: true

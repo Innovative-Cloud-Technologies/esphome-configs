@@ -7,7 +7,7 @@ packages:
 esphome:
   project:
     name: "ICT.PLF12"
-    version: "1.1.8"
+    version: "1.1.9"
 
 dashboard_import:
   package_import_url: github://Innovative-Cloud-Technologies/esphome-configs/ict-plf12.yaml@main
@@ -60,7 +60,7 @@ output:
 switch:
   - platform: gpio
     id: relay
-    name: Outlet
+    name: $display-name
     pin: $relay_pin
     restore_mode: RESTORE_DEFAULT_OFF
     on_turn_on:
@@ -98,7 +98,7 @@ sensor:
     initial_mode: $initial_mode
     model: $hlw_model
     power:
-      name: Power
+      name: $display-name Power
       unit_of_measurement: W
       id: wattage
       filters:
@@ -106,7 +106,7 @@ sensor:
             - $power_cal_val1_in -> $power_cal_val1_out
             - $power_cal_val2_in -> $power_cal_val2_out
     current:
-      name: Current
+      name: $display-name Current
       unit_of_measurement: A
       id: current
       filters:
@@ -114,7 +114,7 @@ sensor:
             - $current_cal_val1_in -> $current_cal_val1_out
             - $current_cal_val2_in -> $current_cal_val2_out
     voltage:
-      name: Voltage
+      name: $display-name Voltage
       unit_of_measurement: V
       id: voltage
       filters:
@@ -123,7 +123,7 @@ sensor:
             - $voltage_cal_val2_in -> $voltage_cal_val2_out
 
   - platform: total_daily_energy
-    name: Total Daily Energy
+    name: $display-name Total Daily Energy
     power_id: wattage
     filters:
         - multiply: 0.001  ## convert Wh to kWh

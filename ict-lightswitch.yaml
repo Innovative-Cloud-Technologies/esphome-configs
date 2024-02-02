@@ -7,7 +7,7 @@ packages:
 esphome:
   project:
     name: "ICT.LIGHTSWITCH"
-    version: "0.0.2"
+    version: "0.0.3"
 
 dashboard_import:
   package_import_url: github://Innovative-Cloud-Technologies/esphome-configs/ict-lightswitch.yaml@main
@@ -30,7 +30,7 @@ output:
 
 light:
   - platform: binary
-    name: None
+    name: $display-name
     output: relay
     id: lightswitch
 
