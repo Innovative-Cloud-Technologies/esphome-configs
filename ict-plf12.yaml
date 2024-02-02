@@ -60,7 +60,7 @@ output:
 switch:
   - platform: gpio
     id: relay
-    name: $display-name
+    name: $entity_name
     pin: $relay_pin
     restore_mode: RESTORE_DEFAULT_OFF
     on_turn_on:
@@ -106,7 +106,7 @@ sensor:
             - $power_cal_val1_in -> $power_cal_val1_out
             - $power_cal_val2_in -> $power_cal_val2_out
     current:
-      name: $display-name Current
+      name: $entity_name Current
       unit_of_measurement: A
       id: current
       filters:
@@ -114,7 +114,7 @@ sensor:
             - $current_cal_val1_in -> $current_cal_val1_out
             - $current_cal_val2_in -> $current_cal_val2_out
     voltage:
-      name: $display-name Voltage
+      name: $entity_name Voltage
       unit_of_measurement: V
       id: voltage
       filters:
@@ -123,7 +123,7 @@ sensor:
             - $voltage_cal_val2_in -> $voltage_cal_val2_out
 
   - platform: total_daily_energy
-    name: $display-name Total Daily Energy
+    name: $entity_name Total Daily Energy
     power_id: wattage
     filters:
         - multiply: 0.001  ## convert Wh to kWh

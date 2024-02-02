@@ -30,7 +30,7 @@ output:
 
 light:
   - platform: binary
-    name: $display-name
+    name: $entity_name
     output: relay
     id: lightswitch
 
