@@ -33,9 +33,9 @@ time:
 
 sensor:
   - platform: wifi_signal
-    name: WiFi Signal
+    name: $display-name WiFi Signal
 
 text_sensor:
   - platform: wifi_info
     ip_address:
-      name: IP Address
+      name: $display-name IP Address
