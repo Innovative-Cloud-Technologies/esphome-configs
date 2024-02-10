@@ -15,7 +15,7 @@ wifi:
   fast_connect: True
   ap:
     ssid: $device_name
-    password: 12345678
+    password: "12345678"
 
 web_server:
   include_internal: true
