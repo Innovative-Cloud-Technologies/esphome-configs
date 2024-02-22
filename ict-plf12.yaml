@@ -98,7 +98,7 @@ sensor:
     initial_mode: $initial_mode
     model: $hlw_model
     power:
-      name: $display-name Power
+      name: $entity_name Power
       unit_of_measurement: W
       id: wattage
       filters:
