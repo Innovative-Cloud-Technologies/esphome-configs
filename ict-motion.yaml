@@ -1,0 +1,35 @@
+packages:
+  ICT.BASE:
+    url: https://github.com/Innovative-Cloud-Technologies/esphome-configs
+    file: ict-base.yaml
+    refresh: 1min
+
+esphome:
+  project:
+    name: "ICT.MOTION"
+    version: "0.0.1"
+
+dashboard_import:
+  package_import_url: github://Innovative-Cloud-Technologies/esphome-configs/ict-motion.yaml@main
+
+esp8266:
+  board: d1_mini
+
+logger:
+  baud_rate: 0
+
+light:
+  - platform: status_led
+    id: LED1
+    pin:
+      number: GPIO2
+      inverted: true
+
+uart:
+  tx_pin: TX
+  rx_pin: RX
+  baud_rate: 256000
+  parity: NONE
+  stop_bits: 1
+
+ld2410:
