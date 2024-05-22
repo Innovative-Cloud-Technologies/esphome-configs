@@ -17,9 +17,6 @@ wifi:
     ssid: $device_name
     password: "12345678"
 
-web_server:
-  include_internal: true
-
 ota:
   password: 12345678
 
