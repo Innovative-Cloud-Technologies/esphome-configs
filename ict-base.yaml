@@ -24,10 +24,6 @@ api:
 captive_portal:
 logger:
 
-time:
-  - platform: homeassistant
-    id: homeassistant_time
-
 sensor:
   - platform: wifi_signal
     name: $entity_name WiFi Signal
