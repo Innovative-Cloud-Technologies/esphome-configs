@@ -1,0 +1,251 @@
+# Full config template for LD2410
+substitutions:
+  device_name: template-presence
+  entity_name: Template Presence
+
+packages:
+  ICT.BASE:
+    url: https://github.com/Innovative-Cloud-Technologies/esphome-configs
+    file: ict-motion.yaml
+    refresh: 1min
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+# # # # # # # # # # # # # # # #
+
+number:
+  - platform: ld2410
+
+    timeout:
+      name: $entity_name Timeout
+      entity_category: "config"
+      mode: "box"
+      unit_of_measurement: "s"
+
+    light_threshold:
+      name: $entity_name Light Threshold
+      entity_category: "config"
+      device_class: "illuminance"
+
+    max_move_distance_gate:
+      name: $entity_name Max Move Distance Gate
+      entity_category: "config"
+
+    max_still_distance_gate:
+      name: $entity_name Max Still Distance Gate
+      entity_category: "config"
+
+    g0:
+      move_threshold:
+        name: $entity_name g0 Move Threshold
+        entity_category: "config"
+      still_threshold:
+        name: $entity_name g0 Still Threshold
+        entity_category: "config"
+
+    g1:
+      move_threshold:
+        name: $entity_name g1 Move Threshold
+        entity_category: "config"
+      still_threshold:
+        name: $entity_name g1 Still Threshold
+        entity_category: "config"
+
+    g2:
+      move_threshold:
+        name: $entity_name g2 Move Threshold
+        entity_category: "config"
+      still_threshold:
+        name: $entity_name g2 Still Threshold
+        entity_category: "config"
+
+    g3:
+      move_threshold:
+        name: $entity_name g3 Move Threshold
+        entity_category: "config"
+      still_threshold:
+        name: $entity_name g3 Still Threshold
+        entity_category: "config"
+
+    g4:
+      move_threshold:
+        name: $entity_name g4 Move Threshold
+        entity_category: "config"
+      still_threshold:
+        name: $entity_name g4 Still Threshold
+        entity_category: "config"
+
+    g5:
+      move_threshold:
+        name: $entity_name g5 Move Threshold
+        entity_category: "config"
+      still_threshold:
+        name: $entity_name g5 Still Threshold
+        entity_category: "config"
+
+    g6:
+      move_threshold:
+        name: $entity_name g6 Move Threshold
+        entity_category: "config"
+      still_threshold:
+        name: $entity_name g6 Still Threshold
+        entity_category: "config"
+
+    g7:
+      move_threshold:
+        name: $entity_name g7 Move Threshold
+        entity_category: "config"
+      still_threshold:
+        name: $entity_name g7 Still Threshold
+        entity_category: "config"
+
+    g8:
+      move_threshold:
+        name: $entity_name g8 Move Threshold
+        entity_category: "config"
+      still_threshold:
+        name: $entity_name g8 Still Threshold
+        entity_category: "config"
+
+button:
+  - platform: ld2410
+    restart:
+      name: $entity_name Restart
+    query_params:
+      name: $entity_name Query
+
+switch:
+  - platform: ld2410
+    engineering_mode:
+      name: $entity_name Engineering Mode
+
+select:
+  - platform: ld2410
+    distance_resolution:
+      name: $entity_name Resolution
+    light_function:
+      name: $entity_name Light Function
+
+binary_sensor:
+  - platform: ld2410
+    has_target:
+      name: $entity_name Target
+      on_press:
+        then:
+          - light.turn_on: LED1
+      on_release:
+        then:
+          - light.turn_off: LED1
+    has_moving_target:
+      name: $entity_name Moving Target
+    has_still_target:
+      name: $entity_name Still Target
+
+sensor:
+  - platform: ld2410
+
+    light:
+      name: $entity_name Light
+
+    moving_distance:
+      name: $entity_name Moving Distance
+      unit_of_measurement: cm
+      state_class: measurement
+      device_class: distance
+      entity_category: "diagnostic"
+
+    still_distance:
+      name: $entity_name Still Distance
+      unit_of_measurement: cm
+      state_class: measurement
+      device_class: distance
+      entity_category: "diagnostic"
+
+    detection_distance:
+      name: $entity_name Detection Distance
+      unit_of_measurement: cm
+      state_class: measurement
+      device_class: distance
+      entity_category: "diagnostic"
+
+    moving_energy:
+      name: $entity_name Moving Energy
+      entity_category: "diagnostic"
+
+    still_energy:
+      name: $entity_name Still Energy
+      entity_category: "diagnostic"
+
+    g0:
+      move_energy:
+        name: $entity_name g0 move energy
+        entity_category: "diagnostic"
+      still_energy:
+        name: $entity_name g0 still energy
+        entity_category: "diagnostic"
+
+    g1:
+      move_energy:
+        name: $entity_name g1 move energy
+        entity_category: "diagnostic"
+      still_energy:
+        name: $entity_name g1 still energy
+        entity_category: "diagnostic"
+
+    g2:
+      move_energy:
+        name: $entity_name g2 move energy
+        entity_category: "diagnostic"
+      still_energy:
+        name: $entity_name g2 still energy
+        entity_category: "diagnostic"
+
+    g3:
+      move_energy:
+        name: $entity_name g3 move energy
+        entity_category: "diagnostic"
+      still_energy:
+        name: $entity_name g3 still energy
+        entity_category: "diagnostic"
+
+    g4:
+      move_energy:
+        name: $entity_name g4 move energy
+        entity_category: "diagnostic"
+      still_energy:
+        name: $entity_name g4 still energy
+        entity_category: "diagnostic"
+
+    g5:
+      move_energy:
+        name: $entity_name g5 move energy
+        entity_category: "diagnostic"
+      still_energy:
+        name: $entity_name g5 still energy
+        entity_category: "diagnostic"
+
+    g6:
+      move_energy:
+        name: $entity_name g6 move energy
+        entity_category: "diagnostic"
+      still_energy:
+        name: $entity_name g6 still energy
+        entity_category: "diagnostic"
+
+    g7:
+      move_energy:
+        name: $entity_name g7 move energy
+        entity_category: "diagnostic"
+      still_energy:
+        name: $entity_name g7 still energy
+        entity_category: "diagnostic"
+        
+    g8:
+      move_energy:
+        name: $entity_name g8 move energy
+        entity_category: "diagnostic"
+      still_energy:
+        name: $entity_name g8 still energy
+        entity_category: "diagnostic"
