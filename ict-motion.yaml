@@ -7,7 +7,7 @@ packages:
 esphome:
   project:
     name: "ICT.MOTION"
-    version: "0.0.1"
+    version: "0.0.2"
 
 dashboard_import:
   package_import_url: github://Innovative-Cloud-Technologies/esphome-configs/ict-motion.yaml@main

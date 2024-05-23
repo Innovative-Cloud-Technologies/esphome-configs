@@ -2,7 +2,7 @@ esphome:
   name: $device_name
   project:
     name: "ICT.BASE"
-    version: "0.0.4"
+    version: "0.0.5"
 
 dashboard_import:
   package_import_url: github://Innovative-Cloud-Technologies/esphome-configs/ict-base.yaml@main
