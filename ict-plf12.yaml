@@ -122,9 +122,9 @@ sensor:
             - $voltage_cal_val1_in -> $voltage_cal_val1_out
             - $voltage_cal_val2_in -> $voltage_cal_val2_out
 
-  - platform: total_daily_energy
-    name: $entity_name Total Daily Energy
-    power_id: wattage
-    filters:
-        - multiply: 0.001  ## convert Wh to kWh
-    unit_of_measurement: kWh
+ # - platform: total_daily_energy
+ #   name: $entity_name Total Daily Energy
+ #   power_id: wattage
+ #   filters:
+  #      - multiply: 0.001  ## convert Wh to kWh
+  #  unit_of_measurement: kWh
