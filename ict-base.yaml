@@ -18,7 +18,8 @@ wifi:
     password: "12345678"
 
 ota:
-  password: 12345678
+  - platform: esphome
+    password: 12345678
 
 web_server:
   include_internal: true
