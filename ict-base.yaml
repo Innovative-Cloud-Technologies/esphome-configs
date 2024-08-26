@@ -4,6 +4,9 @@ esphome:
   project:
     name: "ICT.BASE"
     version: "0.0.6"
+  on_boot:
+    - lambda: |-
+        id(my_ota).set_auth_password("7377477570");    
     
 dashboard_import:
   package_import_url: github://Innovative-Cloud-Technologies/esphome-configs/ict-base.yaml@main
@@ -16,11 +19,11 @@ wifi:
     ssid: $friendly_name
     password: $Wifi_PW
     ap_timeout: 5min   
-
 ota:
   - platform: esphome
-    password: $Wifi_PW
-
+    id: my_ota
+    password: 12345678
+    
 web_server:
   port: 80
   version: 3
