@@ -6,7 +6,6 @@ lypackages:
 
 esphome:
   name: $entity_name
-  friendly_name: $friendly_name
   project:
     name: "ICT.LIGHTSWITCH"
     version: "0.0.3"
