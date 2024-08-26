@@ -1,4 +1,4 @@
-lypackages:
+packages:
   ICT.BASE:
     url: https://github.com/Innovative-Cloud-Technologies/esphome-configs
     file: ict-base.yaml
