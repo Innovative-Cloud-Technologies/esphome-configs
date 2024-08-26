@@ -1,6 +1,5 @@
 esphome:
   name: $entity_name
-  friendly_name: $friendly_name
   project:
     name: "ICT.BASE"
     version: "0.0.6"
