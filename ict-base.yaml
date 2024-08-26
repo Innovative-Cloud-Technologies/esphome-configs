@@ -8,8 +8,8 @@ dashboard_import:
   package_import_url: github://Innovative-Cloud-Technologies/esphome-configs/ict-base.yaml@main
 
 substitutions:
-  device_name: ict-base
-  entity_name: "ICT Base"
+  name: ict-base
+  friendly_name: ICT Base
 
 wifi:
   fast_connect: True
