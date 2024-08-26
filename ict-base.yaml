@@ -11,10 +11,12 @@ dashboard_import:
 substitutions:
   SSID: "!secret wifi_ssid"
   Password: "!secret wifi_password"
+  
 wifi:
   ssid: $SSID
   password: $Password
   fast_connect: True
+  ap_timeout: 5min   
   ap:
     ssid: $friendly_name
     password: "12345678"
@@ -29,7 +31,6 @@ web_server:
   ota: true
   
 api:
-captive_portal:
 logger:
 
 sensor:
