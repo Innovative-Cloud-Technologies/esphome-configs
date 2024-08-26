@@ -1,5 +1,5 @@
 esphome:
-  name: $device_name
+  name: $friendly_name
   project:
     name: "ICT.BASE"
     version: "0.0.6"
@@ -14,7 +14,7 @@ substitutions:
 wifi:
   fast_connect: True
   ap:
-    ssid: $device_name
+    ssid: $friendly_name
     password: "12345678"
 
 ota:
@@ -32,15 +32,15 @@ logger:
 
 sensor:
   - platform: wifi_signal
-    name: $entity_name WiFi Signal
+    name: WiFi Signal
 
 text_sensor:
   - platform: wifi_info
     ip_address:
-      name: $entity_name IP Address
+      name: IP Address
 
 button:
   - platform: restart
     id: restart_button
-    name: Restart Device
+    name: Restart
     entity_category: diagnostic
