@@ -21,9 +21,6 @@ ota:
   - platform: esphome
     password: 12345678
 
-web_server:
-  include_internal: true
-
 api:
 captive_portal:
 logger:
@@ -40,6 +37,5 @@ text_sensor:
 button:
   - platform: restart
     id: restart_button
-    name: $entity_name Restart Firmware
+    name: Restart Device
     entity_category: diagnostic
-    disabled_by_default: false 
