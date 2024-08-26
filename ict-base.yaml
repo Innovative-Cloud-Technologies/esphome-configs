@@ -15,7 +15,6 @@ wifi:
   ssid: $SSID
   password: $Wifi_PW
   fast_connect: True
-  use_address: 192.168.2.198
   ap:
     ssid: $friendly_name
     password: $Wifi_PW
