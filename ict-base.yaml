@@ -12,6 +12,8 @@ substitutions:
   SSID: "!secret wifi_ssid"
   Password: "!secret wifi_password"
 wifi:
+  ssid: $SSID
+  password: $Password
   fast_connect: True
   ap:
     ssid: $friendly_name
