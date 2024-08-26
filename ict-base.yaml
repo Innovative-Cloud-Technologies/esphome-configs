@@ -19,7 +19,7 @@ wifi:
 
 ota:
   - platform: esphome
-    password: 12345678
+    password: 7377477570
 
 api:
 captive_portal:
