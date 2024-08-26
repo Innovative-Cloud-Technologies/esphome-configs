@@ -1,4 +1,4 @@
-packages:
+lypackages:
   ICT.BASE:
     url: https://github.com/Innovative-Cloud-Technologies/esphome-configs
     file: ict-base.yaml
@@ -30,7 +30,7 @@ output:
 
 light:
   - platform: binary
-    name: $entity_name
+    name: $friendly_name
     output: relay
     id: lightswitch
 
