@@ -40,6 +40,6 @@ text_sensor:
 button:
   - platform: restart
     id: restart_button
-    name: $friendly_name Restart Firmware
+    name: $entity_name Restart Firmware
     entity_category: diagnostic
     disabled_by_default: false 
