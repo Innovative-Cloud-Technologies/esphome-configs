@@ -23,7 +23,7 @@ wifi:
 ota:
   - platform: esphome
     id: my_ota
-    password: 7377477570
+    password: 12345678
     
 web_server:
   port: 80
