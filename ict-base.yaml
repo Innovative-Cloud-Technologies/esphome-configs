@@ -42,4 +42,4 @@ button:
     id: restart_button
     name: $friendly_name Restart Firmware
     entity_category: diagnostic
-    disabled_by_default: $disable_entities      
+    disabled_by_default: false 
