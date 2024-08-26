@@ -7,14 +7,10 @@ esphome:
     
 dashboard_import:
   package_import_url: github://Innovative-Cloud-Technologies/esphome-configs/ict-base.yaml@main
-  
-substitutions:
-  SSID: "!secret wifi_ssid"
-  Password: "!secret wifi_password"
-  
+    
 wifi:
   ssid: $SSID
-  password: $Password
+  password: $Wifi_PW
   fast_connect: True
   ap:
     ssid: $friendly_name
