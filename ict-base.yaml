@@ -28,6 +28,8 @@ web_server:
   port: 80
   version: 3
   ota: true
+  include_internal: True
+  local: True
   
 api:
 logger:
