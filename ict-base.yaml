@@ -16,10 +16,10 @@ wifi:
   ssid: $SSID
   password: $Password
   fast_connect: True
-  ap_timeout: 5min   
   ap:
     ssid: $friendly_name
     password: "12345678"
+    ap_timeout: 5min   
 
 ota:
   - platform: esphome
