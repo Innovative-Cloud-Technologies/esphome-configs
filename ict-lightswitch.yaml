@@ -5,7 +5,7 @@ packages:
     refresh: 1min
 
 esphome:
-  name: $name
+  name: $entity_name
   project:
     name: "ICT.LIGHTSWITCH"
     version: "0.0.3"
